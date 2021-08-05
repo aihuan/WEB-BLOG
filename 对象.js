@@ -48,6 +48,41 @@ var stu = new Map();
 stu.set('lkk', 99);
 console.log(stu); //不能多次给一个Map对象赋值 那么后面的会覆盖前面的
 // Set 给定一个Array 如果重复了，那么会自动清除重复的值
-var num = new Set([1, 3, 4, 3, 5, 6])
+var num = new Set([1, 3, 4, 3, 5, 6, 'lkk', 'lkk'])
 num.add(9) //(5)就没有效果的 delete 删除
+
 console.log(num); //可以重复添加，但不会有效果，用add添加
+
+
+/*==============遍历 Map Set 无法使用下标 =============*/
+
+// ES6引用了iterable {Map Set Array}都属于iterable  
+// 具有iterable类型的集合可以通过新的for ... of(for of也是ES6新引入的)循环来遍历。
+for (var item of num) {
+    console.log(item);
+}
+/* 比较 for in 和 for of  ----for in是历史遗留问题，他遍历的是对象的属性名称*/
+// 然而更好的方法就是，使用iterable内置的forEach方法，他接收一个函数，每次迭代就自动回调该函数
+
+a.forEach(function(element, index, array) {
+    // element: 指向当前元素的值
+    // index: 指向当前索引
+    // array: 指向Array对象本身
+    console.log(element + ', index = ' + index);
+});
+// Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：
+
+var s = new Set(['A', 'B', 'C']);
+s.forEach(function(element, sameElement, set) {
+    console.log(element);
+});
+// Map的回调函数参数依次为value、key和map本身：
+
+var m = new Map([
+    [1, 'x'],
+    [2, 'y'],
+    [3, 'z']
+]);
+m.forEach(function(value, key, map) {
+    console.log(value);
+});
