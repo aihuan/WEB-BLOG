@@ -28,3 +28,7 @@ var arr = [1, 3, 5, 7, 9];
 arr.reduce(function(x, y) {
     return x + y;
 }); // 25
+
+// filter 过滤某些元素 符合规则的 
+var f1 = arr.filter(x => x > 5)
+console.log(f1);
