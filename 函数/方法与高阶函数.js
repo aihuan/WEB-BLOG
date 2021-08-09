@@ -32,3 +32,30 @@ arr.reduce(function(x, y) {
 // filter 过滤某些元素 符合规则的 
 var f1 = arr.filter(x => x > 5)
 console.log(f1);
+
+// sort 排序 array 是按照字符的ASCII来的
+var num2 = [1, 10, 5, 2]
+num2.sort(function(x, y) {
+    if (x < y) {
+        return -1;
+    }
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+});
+console.log(num2);
+
+// 如果按照字母大小写来比较的话 
+var arr = ['Google', 'apple', 'Microsoft'];
+arr.sort(function(s1, s2) {
+    x1 = s1.toUpperCase(); //大写
+    x2 = s2.toUpperCase();
+    if (x1 < x2) {
+        return -1;
+    }
+    if (x1 > x2) {
+        return 1;
+    }
+    return 0;
+}); // ['apple', 'Google', 'Microsoft']
