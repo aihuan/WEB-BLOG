@@ -87,6 +87,36 @@
         // 添加DOM还可以使用append
         // prepend()把DOM添加到前面
         // 同级节点可以使用after和before
+        // 事件 绑定浏览器事件
+        var click = $('#test-ul li.js');
+        //在使用on响应事件时，要记住一个重要的点是 "click"
+        click.on("click", function() {
+                alert("点击事件响应。");
+            })
+            // 该方法我们使用简化之后的
+        click.click(function() {
+                alert("第二次响应////")
+            })
+            // ready 在表单未加载时，我们才会使用它
+        $(document).ready(function() {
+
+            })
+            //二次简化 这是ready简化的写法
+        $(function() {
+            console.log('init A...');
+        });
+        // 获取鼠标的位置和按键的值 
+        //off 解除绑定
+        function hello() {
+            alert('hello!');
+        }
+
+        a.click(hello); // 绑定事件
+
+        // 10秒钟后解除绑定:
+        setTimeout(function() {
+            a.off('click', hello);
+        }, 10000);
     </script>
 </body>
 
