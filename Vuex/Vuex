@@ -1,0 +1,9 @@
+<script>
+export default {
+  // state  属性的状态
+  // getter 计算属性
+  // mutuation state的显示提交 也是唯一的
+  // action 提交的是mutuation 因为它可以处理异步
+  // module 如果属性过多 然后可以分成多个module
+}
+</script>
