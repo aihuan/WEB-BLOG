@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- HTML代码 -->
+    <canvas id="test-canvas" width="200" heigth="100">
+  <p>你的浏览器不支持Canvas</p>
+</canvas>
+    <script>
+        'use strict';
+        var canvas = document.getElementById('test-canvas');
+        if (canvas.getContext) {
+            console.log('你的浏览器支持canvas');
+            alert('你的浏览器支持canvas');
+        } else {
+            console.log('你的浏览器不支持canvas');
+            alert('你的浏览器不支持canvas');
+        }
+        var ctx = canvas.getContext('2d');
+        // 也可以绘制3D
+        // gl = canvas.getContext("webgl");
+        /*接下来用2D绘制*/
+        ctx.clearRect(0, 0, 200, 200); //擦除(0,0,200,200) 0,0,200，200位置为0，0 区域大小为200*200
+        //擦除的意思就是将该区域变透明
+        ctx.fillStyle = "#dddddd"; //设置颜色
+        ctx.fillRect(10, 10, 130, 130); //涂色
+        // 利用path绘制复杂路径
+        var path = new Path2D();
+        path.arc(75, 75, 50, 0, Math.PI * 2, true);
+        path.moveTo(110, 75);
+        path.arc(75, 75, 35, 0, Math.PI, false);
+        path.moveTo(65, 65);
+        path.arc(60, 65, 5, 0, Math.PI * 2, true);
+        path.moveTo(95, 65);
+        path.arc(90, 65, 5, 0, Math.PI * 2, true);
+        ctx.strokeStyle = '#0000ff';
+        ctx.stroke(path);
+        // ctx.stroke(path)
+    </script>
+</body>
+
+</html>

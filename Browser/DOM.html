@@ -1,3 +1,56 @@
-innerHTML // 获取
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" value="2021-08-16">
+    <input type="datetime-local" value="2021-08-16">
+
+    <!-- jS以两种方式来处理提交的表单
+        方式一：通过<form>元素的submit()方法提交一个表单
+     -->
+    <!-- 操作文件  Action 当一个表单包含<input type="file">时，表单的enctype必须指定
+      为multipart/form-data，method 必须指定为post 浏览器才能正确编码
+      处于安全考虑，浏览器只支持用户点击<input type="file">来选择本地文件 用JS对value赋值是没有任何效果的
+
+    -->
+    <h3>选择上传本地文件</h3>
+    <input type="file">
+    <!-- HTML5的普及，新增File API 允许JS读取文件内容 获得更多的信息
+      提供两个主要对象  File 和 FileReader 获取文件并读取文件
+     -->
+
+    var fileInput = document.getElementById('test-image-file'), info = document.getElementById('test-file-info'), preview = document.getElementById('test-image-preview'); // 监听change事件: fileInput.addEventListener('change', function () { // 清除背景图片: preview.style.backgroundImage
+    = ''; // 检查文件是否选择: if (!fileInput.value) { info.innerHTML = '没有选择文件'; return; } // 获取File引用: var file = fileInput.files[0]; // 获取File信息: info.innerHTML = '文件: ' + file.name + '<br>' + '大小: ' + file.size + '<br>' + '修改: ' + file.lastModifiedDate;
+    if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') { alert('不是有效的图片文件!'); return; } // 读取文件: var reader = new FileReader(); reader.onload = function(e) { var data = e.target.result; // 'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...'
+    preview.style.backgroundImage = 'url(' + data + ')'; }; // 以DataURL的形式读取文件: reader.readAsDataURL(file); });
+</body>
+
+</html>
+<!-- innerHTML // 获取
 <p id="p-id">...</p>
-var p = document.getElementById('p-id'); // 设置CSS: p.style.color = '#ff0000'; p.style.fontSize = '20px'; p.style.paddingTop = '2em';
+var p = document.getElementById('p-id'); // 设置CSS: p.style.color = '#ff0000'; p.style.fontSize = '20px'; p.style.paddingTop = '2em'; -->
+
+<!-- 插入DOM 
+var js = document.getElementById('JS'),
+list =documentById('list');
+list.appendChild(js);
+
+<!-- 删除一个DOM 首先找获取父节点及本身节点 然后再调用父节点的removeChild把自己删掉-->
+<!-- 拿到待删除节点 -->
+<!-- var self =document.getElementById('') -->
+
+
+<!-- 操作表单 -->
+<!-- 可以直接获得的值是将值获取 checked 和radio这些是不可以直接获取的 需要用checked -->
+
+
+<!-- HTML新增了大量标准控件 ，常见的是type datetime datetime-local color -->
+<!-- 都使用<input >标签
+比如  -->

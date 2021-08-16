@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- HTML结构 -->
+    <div class="testing">
+        <ul class="lang">
+            <li class="lang-javascript">JavaScript</li>
+            <li class="lang-python">Python</li>
+            <li class="lang-lua">Lua</li>
+        </ul>
+    </div>
+
+    <script>
+        var ceng = jQuery('ul.lang li.lang-javascript');
+        console.log(ceng);
+
+        /*JQuery把所有功能都封装在一个全局变量jquery中，而$也是一个合法的变量名 就是JQuery的别名
+                如果$符合被使用了，那么我们就要使用jQuery
+                */
+        // 先在$被占用之前，我们内部保存了原来的$ 调用jQuery.noConflict()时会把原来保存的变量还原。
+        /*jQuery对象类似于数组*/
+        // 查找某个DOM节点有id属性 利用jQuery查找
+        var div = $("#abc");
+        // [ < div id = "abc" > ... < /div>]
+
+        // 同时也可以按照属性来查找
+        var email = $('[name=email]'); // 找出<??? name="email">
+
+
+        // 不希望把表单外面的<div name="email">
+        var emailInput = $('input[name=email]'); // 不会找出<div name="email">
+        //1. 多项选择器 
+        //2. 层级选择器 中间用空格隔开
+        //3. 子选择器（Child Selector） $('parent>child')类似于层选择器 限定了层级关系必须是父子关系
+        $('ul.lang>li.lang-javascript'); // 可以选出[<li class="lang-javascript">JavaScript</li>]
+        $('div.testing>li.lang-javascript'); // [], 无法选出，因为<div>和<li>不构成父子关系
+        //4.过滤器 一般不单独使用，它通常附加在选择器上，帮助我们更加精确的定位元素
+        $('ul.lang li:first-child'); //仅选出Javascript
+        $('ul.lang li:last-child'); //最后一个
+        $('ul.lang li:nth-child(2)'); //选出第n个元素，n从1开始
+        $('ul.lang li:nth-child(odd)'); //选出序号为奇数的元素
+        $('ul.lang li:nth-child(even)'); //选出序号为偶数的元素
+
+        // find()方法 查找
+        // parent() 获取上层节点
+    </script>
+</body>
+
+</html>
