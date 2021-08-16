@@ -1,0 +1,31 @@
+<!-- jQuery中也有ajax 同时ajax也有get()和post()方法 -->
+<!-- get 是作为url 将可选的参数
+     post是将可选的参数 作为请求的body发送过去的
+     由于json常用 所以提供了 getJson()方法得到的是json对象
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var jqxhr = $.getJSON('url', {
+                name: 'zkk',
+                check: 1
+            }).done(function(data) {
+                //data已经被解析成了JSON对象了
+                // jQuery的AJAX完全封装的是JavaScript的AJAX操作，所以它的安全限制和前面讲的用JavaScript写AJAX完全一样。
+
+                // 如果需要使用JSONP，可以在ajax()中设置jsonp: 'callback'，让jQuery实现JSONP跨域加载数据
+            })
+            // 可以使用fn自己编写插件 在jQuery中
+    </script>
+</body>
+
+</html>
