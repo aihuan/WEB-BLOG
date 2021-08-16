@@ -19,6 +19,19 @@
         </ul>
     </div>
 
+    <!-- HTML结构 -->
+    <ul id="test-ul">
+        <li class="js">JavaScript</li>
+        <li name="book">Java &amp; JavaScript</li>
+    </ul>
+    <!-- HTML结构 -->
+    <ul id="test-css">
+        <li class="lang dy"><span>JavaScript</span></li>
+        <li class="lang"><span>Java</span></li>
+        <li class="lang dy"><span>Python</span></li>
+        <li class="lang"><span>Swift</span></li>
+        <li class="lang dy"><span>Scheme</span></li>
+    </ul>
     <script>
         var ceng = jQuery('ul.lang li.lang-javascript');
         console.log(ceng);
@@ -53,6 +66,27 @@
         // find()方法 查找
         // parent() 获取上层节点
         // 位于同一层节点的 可以通过 next() prev()
+        var j1 = $('#test-ul li.js');
+        var j2 = $('#test-ul li[name=book]');
+        j1.html('<span style="color:red">JavaScript</span>')
+        j2.text('Java & keke');
+        // 如果不存在该节点 那么系统也不会报错 jQuery省去了很多if语句
+        // 要高亮显示 动态语言 css('name','value')
+        $('#test-css li.dy>span').css('background-color', '#ffd351').css('color', 'red');
+        // 进行链式调用 $
+        /*CSS方法将作用域DOM节点的style属性*/
+        var div = $('#test-div');
+        div.hasClass('highlight');
+        div.addClass('highlight');
+        div.removeClass('highlight'); //移除
+        // 显示和隐藏DOM
+        var a = $('a[target=_blank]');
+        a.hide(); // 隐藏
+        a.show(); // 显示
+        // 要注意 val()
+        // 添加DOM还可以使用append
+        // prepend()把DOM添加到前面
+        // 同级节点可以使用after和before
     </script>
 </body>
 
