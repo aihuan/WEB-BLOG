@@ -84,5 +84,5 @@ var m = new Map([
     [3, 'z']
 ]);
 m.forEach(function(value, key, map) {
-    console.log(value);
+    console.log("ss" + value);
 });
